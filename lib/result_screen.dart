@@ -1,13 +1,13 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/data/questions.dart';
 import 'package:quizapp/questions_summary.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key, required this.chosenAnswers});
+  const ResultScreen(this.startQuiz, {super.key, required this.chosenAnswers});
 
   final List chosenAnswers;
+  final void Function() startQuiz;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -51,9 +51,15 @@ class ResultScreen extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          TextButton(onPressed: () {}, child: const Text("Restart Quiz"))
+          TextButton(
+              onPressed: restartQuizPressed, child: const Text("Restart Quiz"))
         ]),
       ),
     );
+  }
+
+  void restartQuizPressed() {
+    print("Int");
+    startQuiz();
   }
 }
