@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/data/questions.dart';
 import 'package:quizapp/questions_summary.dart';
 
@@ -36,7 +37,13 @@ class ResultScreen extends StatelessWidget {
         margin: const EdgeInsets.all(40),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Text(
-              'You answered $numCorrectQuestions out of $numTotalQuestions questiosn correctly!'),
+            'You answered $numCorrectQuestions out of $numTotalQuestions questions correctly!',
+            style: GoogleFonts.lato(
+                color: const Color.fromARGB(255, 201, 153, 251),
+                fontSize: 28,
+                fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
           const SizedBox(
             height: 30,
           ),
